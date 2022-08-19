@@ -11,8 +11,8 @@ export default function Home() {
     return (
         <Wrapper>
             <Grid>
-                {buttonsList.map(({ soundPlay }, index) => {
-                    return <GridButton key={index} soundPlay={soundPlay} />
+                {buttonsList.map(({ soundPlay, isPlayed, id }, index) => {
+                    return <GridButton key={index} soundPlay={soundPlay} isPlayed={isPlayed} id={id}/>
                 })}
             </Grid>
         </Wrapper>
