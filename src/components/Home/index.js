@@ -11,8 +11,13 @@ export default function Home() {
     return (
         <Wrapper>
             <Grid>
-                {buttonsList.map(({ soundPlay, isPlayed, id }, index) => {
-                    return <GridButton key={index} soundPlay={soundPlay} isPlayed={isPlayed} id={id}/>
+                {buttonsList.map(({ soundPlay, isPlayed, id, handleSampleChange }, index) => {
+                    return <GridButton key={index}
+                        soundPlay={soundPlay}
+                        isPlayed={isPlayed}
+                        id={id}
+                        handleSampleChange = { handleSampleChange }
+                    />
                 })}
             </Grid>
         </Wrapper>
@@ -20,13 +25,18 @@ export default function Home() {
 
 
 }
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+width: 100%;
+
+display: flex;
+align-items: center;
+`;
 
 const Grid = styled.div`
     display: grid;
     width: 400px;
     height: 400px;
-    border: solid 1px;
+   
     grid-template-columns: 1fr 1fr;
     column-gap:12px;
     row-gap:12px;

@@ -2,17 +2,26 @@ import styled from 'styled-components';
 
 
 
-export default function GridButton({ isPlayed = false, soundPlay, id }) {
+export default function GridButton({
+    isPlayed = false,
+    soundPlay,
+    id,
+    handleSampleChange,
+}) {
     return <Wrapper isPlayed={isPlayed} onClick={soundPlay}>
         <label onClick={(e) => e.stopPropagation()} htmlFor={id}>🎶</label>
-        <input onClick={(e) => e.stopPropagation()} id={id} type="file" />
+        <input onClick={(e) => e.stopPropagation()}
+            id={id}
+            type="file"
+            onChange={handleSampleChange}
+        />
 
     </Wrapper>
 }
 
 const Wrapper = styled.div`
 
-    border: solid 1px;
+    // border: solid 1px;
     border-radius: 12px;
     background-color: #D9AFD9;
     background-image: radial-gradient(
@@ -39,8 +48,10 @@ const Wrapper = styled.div`
           opacity: ${(props) => (props.isPlayed ? "1" : "0")};
           transition: linear 0.2s
     }
+    
     &:hover::before {
-        opacity: 0;
+        opacity: 1;
+        background color: lightblue;
     }
     &:active::before {
         opacity: 1;
@@ -58,5 +69,6 @@ const Wrapper = styled.div`
         position: absolute;
         right: 12px;
         top: 12px;
+        font-size: 24px;
     }
 `;

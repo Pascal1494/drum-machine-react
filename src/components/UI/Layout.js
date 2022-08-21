@@ -22,11 +22,11 @@ export default function Layout({ children }) {
         <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
             <Wrapper>
                 <GlobaStyle />
-                <Header isLight={isLight} handleToggleTheme={handleToggleTheme} />
+                <Header />
                 <Main>
                     {children}
                 </Main>
-                <Footer />
+                <Footer isLight={isLight} handleToggleTheme={handleToggleTheme} />
 
             </Wrapper>
         </ThemeProvider>
@@ -39,10 +39,11 @@ const Wrapper = styled.div`
 `;
 
 const Main = styled.div`
-min-height: calc(100vh - 192px);
+min-height: calc(100vh - 160px);
 width: 96%;
 max-width: 1240px;
 margin: auto;
-margin-top: 32px;
+// margin-top: 32px;
+display: flex;
 
 `
