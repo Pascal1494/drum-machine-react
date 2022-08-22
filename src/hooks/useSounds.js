@@ -70,7 +70,7 @@ export default function useSounds() {
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [])
+    }, )
 
     function handleSampleChange(note, file) {
         let fileUrl = URL.createObjectURL(file);
